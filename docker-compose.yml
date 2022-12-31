@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  web:
+    build: ./web
+    ports:
+      - "3128:3128"
+    privileged: true
+    volumes:
+      - ./html:/var/www/html
+    restart: always
+    platform: linux/x86_64 # for M1
+    extra_hosts:
+      - "vhost.test:127.0.0.1"
+      - "vhost2.test:127.0.0.1"
